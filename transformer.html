@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transformers Merchandise Store</title>
+    <style>
+        body { font-family: Arial; margin: 0; background: #0b0b0f; color: #ffffff;}
+        header { background: #15151f; padding: 10px 0;}
+        .nav { width: 90%; margin: auto; display: flex; justify-content: space-between; align-items: center;}
+        .logo { font-size: 22px; font-weight: bold; color: #00e0ff;}
+        .nav-links a { margin-left: 15px; text-decoration: none; color: white;}
+        .nav-links a:hover { color: #00e0ff;}
+
+        .hero { text-align: center; padding: 25px 10px;}
+        .hero h1 { font-size: 26px;}
+        .hero p { font-size: 14px; color: #d0d0d0;}
+
+        .product-container { width: 90%; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;}
+        .card { background: #1e1e2b; width: 220px; border-radius: 8px; padding: 12px; text-align: center; border: 1px solid #2f2f3f;}
+        .card img { width: 100%; height: 180px; border-radius: 5px;}
+        .price { color: #00ff9d; font-weight: bold;}
+        .btn { background: #ff0040; padding: 7px; width: 80%; margin: auto; border-radius: 4px; color: white;}
+
+        .info-section {width: 90%; margin: 20px auto; display: flex; gap: 20px; flex-wrap: wrap;}
+        .about, .contact { flex:1; min-width:250px; background: #15151f; padding: 15px; border-radius: 8px;}
+        .contact input, .contact textarea { width:100%; margin:5px 0; padding:7px; background:#1e1e2b; color:white; border:none; border-radius:4px;}
+        .contact button { background:#00e0ff; padding:8px; border:none; border-radius: 4px; font-weight:bold;}
+
+        footer { text-align:center; background:#101018; padding:10px; font-size:12px; margin-top:20px;}
+
+        @media (max-width:600px) {
+            .nav { flex-direction: column;}
+            .product-container { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav">
+        <div class="logo">TRANSFORMERS STORE</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>Welcome to Transformers Merchandise</h1>
+    <p>Cool T-shirts, hoodies and toys inspired by Autobots and Decepticons.</p>
+</section>
+
+<h2 style="text-align:center;" id="products">Popular Products</h2><br>
+
+<div class="product-container">
+
+    <div class="card">
+        <img src="https://supremeshirts.in/wp-content/uploads/2021/02/Transformers-Autobots-Black-T-Shirt.jpg">
+        <h3>Autobot T-Shirt</h3>
+        <p>Black T-shirt with Autobot logo.</p>
+        <div class="price">₹599</div>
+        <div class="btn">Buy Now</div>
+    </div>
+
+    <div class="card">
+        <img src="https://www.80stees.com/cdn/shop/files/black-decepticon-logo-transformers-hoodie.master_1500x1500.png?v=1703058778">
+        <h3>Decepticon Hoodie</h3>
+        <p>Purple logo hoodie for Decepticon fans.</p>
+        <div class="price">₹999</div>
+        <div class="btn">Buy Now</div>
+    </div>
+
+    <div class="card">
+        <img src="https://cdn11.bigcommerce.com/s-0kvv9/images/stencil/1280w/products/121284/139455/ultraoptimusprime-inset4__62524.1550252860.jpg?c=2">
+        <h3>Optimus Prime Toy</h3>
+        <p>Small transforming figure.</p>
+        <div class="price">₹799</div>
+        <div class="btn">Buy Now</div>
+    </div>
+
+    <div class="card">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.waqB4etCVuk2bFYPesaIXgHaHa?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3">
+        <h3>Bumblebee Keychain</h3>
+        <p>Yellow metal keychain.</p>
+        <div class="price">₹199</div>
+        <div class="btn">Buy Now</div>
+    </div>
+
+</div>
+
+<div class="info-section">
+    <div class="about" id="about">
+        <h2>About The Transformers.</h2>
+        <p></p>
+    </div>
+
+    <div class="contact" id="contact">
+        <h2>Contact (Demo)</h2>
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Email">
+        <textarea placeholder="Message"></textarea>
+        <button>Send</button>
+    </div>
+</div>
+
+<footer>
+    © 2025 Transformers Merchandise |
+</footer>
+
+</body>
+</html>
