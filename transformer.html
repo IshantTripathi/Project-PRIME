@@ -1,113 +1,461 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Transformers Merchandise Store</title>
-    <style>
-        body { font-family: Arial; margin: 0; background: #0b0b0f; color: #ffffff;}
-        header { background: #15151f; padding: 10px 0;}
-        .nav { width: 90%; margin: auto; display: flex; justify-content: space-between; align-items: center;}
-        .logo { font-size: 22px; font-weight: bold; color: #00e0ff;}
-        .nav-links a { margin-left: 15px; text-decoration: none; color: white;}
-        .nav-links a:hover { color: #00e0ff;}
+<meta charset="UTF-8">
+<title>Transformers Merchandise Store</title>
 
-        .hero { text-align: center; padding: 25px 10px;}
-        .hero h1 { font-size: 26px;}
-        .hero p { font-size: 14px; color: #d0d0d0;}
+<style>
+*{
+    box-sizing:border-box;
+}
 
-        .product-container { width: 90%; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;}
-        .card { background: #1e1e2b; width: 220px; border-radius: 8px; padding: 12px; text-align: center; border: 1px solid #2f2f3f;}
-        .card img { width: 100%; height: 180px; border-radius: 5px;}
-        .price { color: #00ff9d; font-weight: bold;}
-        .btn { background: #ff0040; padding: 7px; width: 80%; margin: auto; border-radius: 4px; color: white;}
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0b0b0f;
+    color:white;
+}
 
-        .info-section {width: 90%; margin: 20px auto; display: flex; gap: 20px; flex-wrap: wrap;}
-        .about, .contact { flex:1; min-width:250px; background: #15151f; padding: 15px; border-radius: 8px;}
-        .contact input, .contact textarea { width:100%; margin:5px 0; padding:7px; background:#1e1e2b; color:white; border:none; border-radius:4px;}
-        .contact button { background:#00e0ff; padding:8px; border:none; border-radius: 4px; font-weight:bold;}
 
-        footer { text-align:center; background:#101018; padding:10px; font-size:12px; margin-top:20px;}
+header{
+    background:#15151f;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
 
-        @media (max-width:600px) {
-            .nav { flex-direction: column;}
-            .product-container { flex-direction: column; }
-        }
-    </style>
+.nav{
+    width:95%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 0;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    color:#00e0ff;
+}
+
+.nav-links a{
+    margin-left:15px;
+    text-decoration:none;
+    color:white;
+    font-size:14px;
+}
+
+.nav-links a:hover{
+    color:#00e0ff;
+}
+
+.cart-ui{
+    background:#00e0ff;
+    color:black;
+    padding:6px 12px;
+    border-radius:20px;
+    font-weight:bold;
+    font-size:13px;
+}
+
+
+.main-layout{
+    display:flex;
+}
+
+
+.sidebar{
+    width:220px;
+    background:#11111b;
+    min-height:100vh;
+    padding:20px 10px;
+}
+
+.sidebar h3{
+    font-size:13px;
+    color:#00e0ff;
+    margin:18px 10px 8px;
+    text-transform:uppercase;
+}
+
+.sidebar a{
+    display:block;
+    padding:10px;
+    margin:4px 0;
+    text-decoration:none;
+    color:#d0d0d0;
+    font-size:14px;
+    border-radius:6px;
+}
+
+.sidebar a:hover{
+    background:#1e1e2b;
+    color:#00e0ff;
+}
+
+
+.content{
+    flex:1;
+    padding:20px;
+}
+
+.hero{
+    text-align:center;
+    padding:25px 10px;
+}
+
+.hero h1{
+    font-size:32px;
+}
+
+.hero p{
+    font-size:15px;
+    color:#cfcfcf;
+}
+
+
+.product-container{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:#1c1c2b;
+    border-radius:10px;
+    padding:12px;
+    border:1px solid #2f2f3f;
+    position:relative;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 0 15px rgba(0,224,255,0.3);
+}
+
+
+.wishlist{
+    position:absolute;
+    top:10px;
+    right:10px;
+    font-size:18px;
+    cursor:pointer;
+    color:#bbb;
+}
+
+.wishlist:hover{
+    color:#ff0040;
+}
+
+.badge{
+    position:absolute;
+    top:10px;
+    left:10px;
+    background:#ff0040;
+    font-size:11px;
+    padding:4px 8px;
+    border-radius:4px;
+}
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:6px;
+}
+
+.card h3{
+    margin:8px 0 4px;
+}
+
+.rating{
+    color:gold;
+    font-size:13px;
+}
+
+.card p{
+    font-size:13px;
+    color:#cfcfcf;
+}
+
+.details{
+    font-size:12px;
+    color:#bdbdbd;
+    line-height:1.5;
+}
+
+.price{
+    color:#00ff9d;
+    font-weight:bold;
+    font-size:16px;
+    margin:8px 0;
+}
+
+.btn-group{
+    display:flex;
+    gap:10px;
+}
+
+.btn{
+    flex:1;
+    padding:8px;
+    text-align:center;
+    border-radius:4px;
+    font-size:13px;
+}
+
+.buy{
+    background:#ff0040;
+}
+
+.cart-btn{
+    background:#00e0ff;
+    color:black;
+    font-weight:bold;
+}
+
+
+.info-section{
+    margin-top:40px;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.about,.contact{
+    flex:1;
+    min-width:260px;
+    background:#15151f;
+    padding:18px;
+    border-radius:10px;
+}
+
+.about p{
+    font-size:14px;
+    line-height:1.7;
+    color:#d0d0d0;
+}
+
+.contact input,
+.contact textarea{
+    width:100%;
+    margin:6px 0;
+    padding:8px;
+    background:#1e1e2b;
+    border:none;
+    color:white;
+    border-radius:4px;
+}
+
+.contact button{
+    background:#00e0ff;
+    padding:8px;
+    border:none;
+    border-radius:4px;
+    font-weight:bold;
+}
+
+
+footer{
+    text-align:center;
+    background:#101018;
+    padding:12px;
+    font-size:12px;
+    color:#aaa;
+}
+
+
+@media(max-width:1000px){
+    .product-container{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:700px){
+    .sidebar{
+        display:none;
+    }
+    .product-container{
+        grid-template-columns:1fr;
+    }
+    .nav-links a{
+        display:none;
+    }
+}
+</style>
 </head>
+
 <body>
 
 <header>
-    <div class="nav">
-        <div class="logo">TRANSFORMERS STORE</div>
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#products">Products</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </div>
+<div class="nav">
+    <div class="logo">TRANSFORMERS STORE</div>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <span class="cart-ui">🛒 Cart (0)</span>
     </div>
+</div>
 </header>
 
-<section class="hero">
-    <h1>Welcome to Transformers Merchandise</h1>
-    <p>Cool T-shirts, hoodies and toys inspired by Autobots and Decepticons.</p>
-</section>
+<div class="main-layout">
 
-<h2 style="text-align:center;" id="products">Popular Products</h2><br>
+<!-- SIDEBAR -->
+<div class="sidebar">
+<h3>My Account</h3>
+<a href="#">👤 Profile</a>
+<a href="#">📦 Orders</a>
+<a href="#">❤️ Wishlist</a>
+<a href="#">🛒 Cart</a>
+
+<h3>Categories</h3>
+<a href="#">👕 T-Shirts</a>
+<a href="#">🧥 Hoodies</a>
+<a href="#">🤖 Toys</a>
+<a href="#">🎒 Accessories</a>
+<a href="#">☕ Mugs</a>
+
+<h3>More</h3>
+<a href="#">⚙️ Settings</a>
+<a href="#">📞 Help</a>
+</div>
+
+
+<div class="content">
+
+<div class="hero">
+<h1>Transformers Merchandise</h1>
+<p>Premium collectibles & apparel for true fans</p>
+</div>
+
+<h2 id="products" style="text-align:center;">Products</h2>
 
 <div class="product-container">
 
-    <div class="card">
-        <img src="https://supremeshirts.in/wp-content/uploads/2021/02/Transformers-Autobots-Black-T-Shirt.jpg">
-        <h3>Autobot T-Shirt</h3>
-        <p>Black T-shirt with Autobot logo.</p>
-        <div class="price">₹599</div>
-        <div class="btn">Buy Now</div>
-    </div>
 
-    <div class="card">
-        <img src="https://www.80stees.com/cdn/shop/files/black-decepticon-logo-transformers-hoodie.master_1500x1500.png?v=1703058778">
-        <h3>Decepticon Hoodie</h3>
-        <p>Purple logo hoodie for Decepticon fans.</p>
-        <div class="price">₹999</div>
-        <div class="btn">Buy Now</div>
-    </div>
+<div class="card">
+<span class="badge">BEST</span>
+<span class="wishlist">❤️</span>
+<img src="https://supremeshirts.in/wp-content/uploads/2021/02/Transformers-Autobots-Black-T-Shirt.jpg" alt="">
+<h3>Autobot T-Shirt</h3>
+<div class="rating">★★★★★ 5.0</div>
+<p>Premium cotton t-shirt</p>
+<div class="details">Sizes S–XL</div>
+<div class="price">₹599</div>
+<div class="btn-group">
+<div class="btn buy">Buy</div>
+<div class="btn cart-btn">Add</div>
+</div>
+</div>
 
-    <div class="card">
-        <img src="https://cdn11.bigcommerce.com/s-0kvv9/images/stencil/1280w/products/121284/139455/ultraoptimusprime-inset4__62524.1550252860.jpg?c=2">
-        <h3>Optimus Prime Toy</h3>
-        <p>Small transforming figure.</p>
-        <div class="price">₹799</div>
-        <div class="btn">Buy Now</div>
-    </div>
+<div class="card">
+<span class="badge">NEW</span>
+<span class="wishlist">❤️</span>
+<img src="https://www.80stees.com/cdn/shop/files/black-decepticon-logo-transformers-hoodie.master_1500x1500.png" alt="">
+<h3>Decepticon Hoodie</h3>
+<div class="rating">★★★★☆ 4.0</div>
+<p>Warm winter hoodie</p>
+<div class="details">Unisex</div>
+<div class="price">₹999</div>
+<div class="btn-group">
+<div class="btn buy">Buy</div>
+<div class="btn cart-btn">Add</div>
+</div>
+</div>
 
-    <div class="card">
-        <img src="https://tse4.mm.bing.net/th/id/OIP.waqB4etCVuk2bFYPesaIXgHaHa?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3">
-        <h3>Bumblebee Keychain</h3>
-        <p>Yellow metal keychain.</p>
-        <div class="price">₹199</div>
-        <div class="btn">Buy Now</div>
-    </div>
+<div class="card">
+<span class="wishlist">❤️</span>
+<img src="https://cdn11.bigcommerce.com/s-0kvv9/images/stencil/1280w/products/121284/139455/ultraoptimusprime-inset4__62524.1550252860.jpg" alt="">
+<h3>Optimus Prime Toy</h3>
+<div class="rating">★★★★★ 5.0</div>
+<p>Transforming action figure</p>
+<div class="details">Age 6+</div>
+<div class="price">₹799</div>
+<div class="btn-group">
+<div class="btn buy">Buy</div>
+<div class="btn cart-btn">Add</div>
+</div>
+</div>
+
+<div class="card">
+<span class="wishlist">❤️</span>
+<img src="https://tse4.mm.bing.net/th/id/OIP.waqB4etCVuk2bFYPesaIXgHaHa" alt="">
+<h3>Bumblebee Keychain</h3>
+<div class="rating">★★★★☆ 4.0</div>
+<p>Metal keychain</p>
+<div class="details">Lightweight</div>
+<div class="price">₹199</div>
+<div class="btn-group">
+<div class="btn buy">Buy</div>
+<div class="btn cart-btn">Add</div>
+</div>
+</div>
+
+<div class="card">
+<span class="badge">TRENDING</span>
+<span class="wishlist">❤️</span>
+<img src="https://m.media-amazon.com/images/I/81dxsJ6aunL._AC_SL1500_.jpg" alt="" >
+<h3>Autobot Smart Watch</h3>
+<div class="rating">★★★★★ 5.0</div>
+<p>Stylish Premium Watch</p>
+<div class="details">Highly Durable + Leather Straps</div>
+<div class="price">₹1599</div>
+<div class="btn-group">
+<div class="btn buy">Buy</div>
+<div class="btn cart-btn">Add</div>
+</div>
+</div>
+
+<div class="card">
+<span class="badge">TRENDING</span>
+<span class="wishlist">❤️</span>
+<img src="https://www.gamespot.com/a/uploads/screen_kubrick/1701/17013431/4340734-transformersheadphones.jpg" alt="">
+<h3>Autobot Headphones</h3>
+<div class="rating">★★★★★ 5.0</div>
+<p>Comfortable for long duration uses.</p>
+<div class="details">Premium sound quality + High Bass</div>
+<div class="price">₹2599</div>
+<div class="btn-group">
+<div class="btn buy">Buy</div>
+<div class="btn cart-btn">Add</div>
+</div>
+</div>
 
 </div>
 
-<div class="info-section">
-    <div class="about" id="about">
-        <h2>About The Transformers.</h2>
-        <p></p>
-    </div>
 
-    <div class="contact" id="contact">
-        <h2>Contact (Demo)</h2>
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Email">
-        <textarea placeholder="Message"></textarea>
-        <button>Send</button>
-    </div>
+<div class="info-section">
+
+<div class="about" id="about">
+<h2>About Us</h2>
+<p>
+This Transformers Merchandise Store is a front-end project created using
+HTML and CSS only. It demonstrates sidebar navigation, product cards,
+wishlist UI, responsive layout and e-commerce design concepts suitable
+for a first-year engineering mini project.
+</p>
+</div>
+
+<div class="contact">
+<h2>Feedback / Contact</h2>
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Email">
+<textarea placeholder="Your Feedback"></textarea>
+<button>Submit</button>
+</div>
+
+</div>
+
+</div>
 </div>
 
 <footer>
-    © 2025 Transformers Merchandise |
+© 2025 Transformers Merchandise Store | HTML & CSS Project
 </footer>
 
 </body>
 </html>
+
